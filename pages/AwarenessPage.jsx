@@ -22,7 +22,7 @@ function AwarenessPage() {
     },
     {
       icon: '💔',
-      title: 'Emotional & Psychological Abuse',
+      title: 'Emotional & Psychological suffering',
       swahili: 'Unyanyasaji wa Kihisia',
       description: 'Emotional abuse involves controlling, threatening, humiliating or isolating a person. It can be just as damaging as physical violence and is often harder to recognize.',
       signs: ['Constant criticism and humiliation', 'Isolation from friends and family', 'Threats and intimidation', 'Controlling behaviour'],
