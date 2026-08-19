@@ -1,0 +1,375 @@
+.donate-page {
+    background: #fff;
+  }
+  
+  .donate-hero {
+    background:
+      linear-gradient(135deg, rgba(123,31,58,0.85) 0%, rgba(169,50,83,0.80) 40%, rgba(192,96,128,0.75) 100%),
+      url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1400&auto=format&fit=crop') center/cover no-repeat;
+    padding: 64px 2rem;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .donate-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #ffe0e9;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .donate-hero h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  
+  .donate-hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .impact-section {
+    padding: 56px 2rem;
+    background: #f9f0f3;
+  }
+  
+  .impact-section h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #2C2C2A;
+    margin-bottom: 8px;
+  }
+  
+  .impact-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 36px;
+  }
+  
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .impact-card {
+    background: #fff;
+    border: 0.5px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    border-top: 4px solid #A93253;
+    transition: transform 0.15s;
+  }
+  
+  .impact-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .impact-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .impact-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: #7B1F3A;
+    margin-bottom: 8px;
+  }
+  
+  .impact-card p {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+  }
+  
+  .donate-form-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 2rem;
+  }
+  
+  .form-intro {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  
+  .form-intro h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2C2C2A;
+    margin-bottom: 6px;
+  }
+  
+  .form-intro-sw {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+  
+  .donate-form .form-section {
+    margin-bottom: 36px;
+  }
+  
+  .donate-form .form-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2C2C2A;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0e0e5;
+  }
+  
+  .amount-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  
+  .amount-btn {
+    padding: 12px 8px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .amount-btn.active {
+    border-color: #A93253;
+    background: #FFF3F5;
+    color: #7B1F3A;
+  }
+  
+  .amount-btn:hover {
+    border-color: #A93253;
+  }
+  
+  .payment-methods {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .payment-btn {
+    flex: 1;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #555;
+  }
+  
+  .payment-btn.active {
+    border-color: #A93253;
+    background: #FFF3F5;
+    color: #7B1F3A;
+    font-weight: 600;
+  }
+  
+  .payment-info {
+    background: #f9f0f3;
+    border: 1px solid #f0d0dc;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 14px;
+    color: #2C2C2A;
+    line-height: 1.8;
+  }
+  
+  .payment-note {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    margin-top: 8px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2C2C2A;
+    margin-bottom: 6px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #2C2C2A;
+    background: #fff;
+    transition: border-color 0.2s;
+    font-family: inherit;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #A93253;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .donate-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #7B1F3A;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 16px;
+  }
+  
+  .donate-submit-btn:hover {
+    background: #A93253;
+  }
+  
+  .form-disclaimer {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .donate-stats {
+    background: #7B1F3A;
+    padding: 40px 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .dstat-item {
+    text-align: center;
+    padding: 0 40px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  
+  .dstat-item:last-child {
+    border-right: none;
+  }
+  
+  .dstat-num {
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  .dstat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+  
+  .success-screen {
+    text-align: center;
+    padding: 80px 2rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  
+  .success-icon {
+    font-size: 64px;
+    margin-bottom: 24px;
+  }
+  
+  .success-screen h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2C2C2A;
+    margin-bottom: 12px;
+  }
+  
+  .success-screen p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .ref-box {
+    background: #EAF3DE;
+    border: 1px solid #C0DD97;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #3B6D11;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+  
+  .success-note {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .back-home {
+    display: inline-block;
+    margin-top: 24px;
+    background: #7B1F3A;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  
+  .back-home:hover {
+    background: #A93253;
+  }
+  [data-theme='dark'] .donate-page { background: var(--bg-primary); }
+[data-theme='dark'] .impact-section { background: var(--bg-secondary); }
+[data-theme='dark'] .impact-card { background: var(--card-bg); border-color: var(--border-color); }
+[data-theme='dark'] .impact-card p { color: var(--text-primary); }
+[data-theme='dark'] .donate-form-section { background: var(--bg-primary); }
+[data-theme='dark'] .amount-btn { background: var(--card-bg); border-color: var(--border-color); color: var(--text-primary); }
+[data-theme='dark'] .amount-btn.active { background: #3a1525; border-color: #f9b8cb; color: #f9b8cb; }
+[data-theme='dark'] .payment-btn { background: var(--card-bg); border-color: var(--border-color); color: var(--text-primary); }
+[data-theme='dark'] .payment-btn.active { background: #3a1525; border-color: #f9b8cb; color: #f9b8cb; }
+[data-theme='dark'] .payment-info { background: #3a1525; border-color: #f9b8cb; color: var(--text-primary); }
+[data-theme='dark'] .form-section h3 { color: var(--text-primary); border-color: var(--border-color); }
+[data-theme='dark'] .form-group label { color: var(--text-primary); }
+[data-theme='dark'] .form-group input,
+[data-theme='dark'] .form-group select,
+[data-theme='dark'] .form-group textarea { background: var(--card-bg); border-color: var(--border-color); color: var(--text-primary); }
+[data-theme='dark'] .form-intro h2 { color: var(--text-primary); }

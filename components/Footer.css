@@ -1,0 +1,99 @@
+.footer {
+    background: #2C2C2A;
+    color: #fff;
+    padding: 56px 2rem 0;
+  }
+  
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.1);
+  }
+  
+  .footer-logo {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  
+  .footer-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    margin-bottom: 4px;
+  }
+  
+  .footer-tagline-sw {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    font-style: italic;
+    line-height: 1.6;
+  }
+  
+  .footer-col h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f9b8cb;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+  
+  .footer-col a:hover {
+    color: #fff;
+  }
+  
+  .hotline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  }
+  
+  .hotline-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+  
+  .hotline-number {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f9b8cb;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 4px;
+  }
+  
+  .footer-disclaimer {
+    color: rgba(255,255,255,0.2) !important;
+    font-style: italic;
+  }
+  [data-theme='dark'] .footer { background: #111; }
+[data-theme='dark'] .footer-col a { color: rgba(255,255,255,0.5); }
+[data-theme='dark'] .footer-bottom p { color: rgba(255,255,255,0.3); }
