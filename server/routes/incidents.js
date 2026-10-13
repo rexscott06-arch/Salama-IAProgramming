@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-// Helper to map a row to contract shape
+const VALID_TYPES = ['physical', 'sexual', 'emotional', 'economic', 'other'];
+const VALID_STATUSES = ['open', 'in_review', 'closed'];
+
 function mapIncident(row) {
   return {
     id: row.id,
@@ -53,31 +55,54 @@ router.get('/:id', async (req, res) => {
 
 // POST create new incident
 router.post('/', async (req, res) => {
+  const { case_ref, incident_type, incident_date, county, location, description, is_anonymous, user_id } = req.body;
+
+  // Validation
+  if (!case_ref || !incident_type || !incident_date || !county || !description) {
+    return res.status(400).json({ error: 'case_ref, incident_type, incident_date, county, and description are required' });
+  }
+  if (!VALID_TYPES.includes(incident_type)) {
+    return res.status(400).json({ error: `incident_type must be one of: ${VALID_TYPES.join(', ')}` });
+  }
+  if (isNaN(Date.parse(incident_date))) {
+    return res.status(400).json({ error: 'incident_date must be a valid date (YYYY-MM-DD)' });
+  }
+
   try {
-    const { case_ref, incident_type, incident_date, county, location, description, is_anonymous, user_id } = req.body;
     const [result] = await db.query(
       'INSERT INTO incidents (case_ref, incident_type, incident_date, county, location, description, is_anonymous, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-      [case_ref, incident_type, incident_date, county, location, description, is_anonymous, user_id]
+      [case_ref, incident_type, incident_date, county, location || null, description, is_anonymous || true, user_id || null]
     );
-    res.status(201).json({ message: 'Incident created', id: result.insertId });
+    const [rows] = await db.query('SELECT * FROM incidents WHERE id = ?', [result.insertId]);
+    res.status(201).json(mapIncident(rows[0]));
   } catch (err) {
-    console.error('FULL ERROR:', err);
+    console.error(err);
     res.status(500).json({ error: 'Failed to create incident', details: err.message });
   }
 });
 
 // PATCH update incident status
 router.patch('/:id/status', async (req, res) => {
+  const { status } = req.body;
+
+  // Validation
+  if (!status) {
+    return res.status(400).json({ error: 'status is required' });
+  }
+  if (!VALID_STATUSES.includes(status)) {
+    return res.status(400).json({ error: `status must be one of: ${VALID_STATUSES.join(', ')}` });
+  }
+
   try {
-    const { status } = req.body;
-    await db.query(
-      'UPDATE incidents SET status = ? WHERE id = ?',
-      [status, req.params.id]
-    );
-    res.json({ message: 'Incident status updated' });
+    const [existing] = await db.query('SELECT id FROM incidents WHERE id = ?', [req.params.id]);
+    if (existing.length === 0) {
+      return res.status(404).json({ error: 'Incident not found' });
+    }
+    await db.query('UPDATE incidents SET status = ? WHERE id = ?', [status, req.params.id]);
+    res.status(200).json({ message: 'Incident status updated' });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Failed to update incident' });
+    res.status(500).json({ error: 'Failed to update incident status' });
   }
 });
 
