@@ -1,4 +1,4 @@
-const isLiveMode = import.meta.env.VITE_FARAJA_API_MODE === 'live'
+const isLiveMode = import.meta.env.VITE_FARAJA_API_MODE !== 'demo'
 const configuredBaseUrl = import.meta.env.VITE_FARAJA_API_URL?.replace(/\/+$/, '')
 const apiBaseUrl = configuredBaseUrl || (isLiveMode ? '/faraja-api' : '')
 

@@ -57,6 +57,9 @@ Set `VITE_API_PROXY_TARGET` in the client environment to use another API host.
 For a deployed client, set `VITE_API_URL` to the API base URL. Database
 credentials belong only in `server/.env`; never put them in the client.
 
+To view community events in Salama while the client is running, open
+http://localhost:5173/community-events.
+
 The client requires a running API and MySQL database. Follow the setup above to
 configure `server/.env` and create the database tables before using database
 features. Online donations remain unavailable until a payment provider is
@@ -64,9 +67,10 @@ integrated; the client does not collect or store payment details.
 
 ## Faraja community events feature
 
-The client route `/community-events` demonstrates the integration with Faraja.
-By default, it shows sample events and keeps activity proposals only in the
-current page session; it does not pretend to call or save to Faraja.
+The client route `/community-events` integrates with Faraja. It uses the live
+Faraja API by default. To explicitly switch to sample events and local,
+temporary demo submissions, set `VITE_FARAJA_API_MODE=demo` before starting
+Vite. The page will clearly label demo submissions as not sent or saved.
 
 The feature expects Faraja's `GET /memorial-events` to return an array with
 `id`, `eventName`, `date`, and `location`. It submits an activity to
@@ -74,17 +78,9 @@ The feature expects Faraja's `GET /memorial-events` to return an array with
 `activityName`, plus optional `description` and `date`.
 
 To try the live integration:
+3. In a second terminal, set the Faraja proxy target and start this client.
+   Live mode is the default:
 
-1. Follow Faraja's README to configure its database and `.env`.
-2. Since Faraja and Salama both default to port 5000, run Faraja on port 5001.
-   In a terminal opened at Faraja's `js/Backend` folder, run:
-
-       $env:PORT = "5001"
-       npm start
-
-3. In a second terminal, enable live mode and start this client:
-
-       $env:VITE_FARAJA_API_MODE = "live"
        $env:VITE_FARAJA_API_PROXY_TARGET = "http://127.0.0.1:5001"
        npm --prefix Client run dev
 
@@ -93,8 +89,9 @@ To try the live integration:
    response or database to verify it was created.
 
 Vite removes the `/faraja-api` prefix before forwarding requests to the
-contract's root paths. For production, set `VITE_FARAJA_API_MODE=live` and
-`VITE_FARAJA_API_URL` to Faraja's base URL, and configure Faraja CORS or a
+contract's root paths. If Faraja is unavailable, the page displays the API
+error; it does not silently substitute sample data. For production, set
+`VITE_FARAJA_API_URL` to Faraja's base URL and configure Faraja CORS or a
 server-side proxy. Never put database credentials in the client.
 
 ---
