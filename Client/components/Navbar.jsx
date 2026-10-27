@@ -17,6 +17,7 @@ function Navbar() {
         <Link to="/awareness" className={location.pathname === '/awareness' ? 'active' : ''}>Awareness</Link>
         <Link to="/report" className={location.pathname === '/report' ? 'active' : ''}>Report</Link>
         <Link to="/resources" className={location.pathname === '/resources' ? 'active' : ''}>Resources</Link>
+        <Link to="/community-events" className={location.pathname === '/community-events' ? 'active' : ''}>Events</Link>
         <Link to="/volunteers" className={location.pathname === '/volunteers' ? 'active' : ''}>Volunteers</Link>
         <Link to="/donate" className={location.pathname === '/donate' ? 'active' : ''}>Donate</Link>
       </div>

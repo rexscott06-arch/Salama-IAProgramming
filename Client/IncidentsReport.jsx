@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { apiRequest } from './clientApi'
 
 function IncidentsTable() {
   const [incidents, setIncidents] = useState([])
@@ -6,11 +7,7 @@ function IncidentsTable() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/incidents')
-      .then((res) => {
-        if (!res.ok) throw new Error('Network response was not ok')
-        return res.json()
-      })
+    apiRequest('/api/incidents')
       .then((data) => {
         setIncidents(data)
         setLoading(false)

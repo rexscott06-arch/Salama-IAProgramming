@@ -1,0 +1,30 @@
+INTERVIEW CONVERSATIONS
+GROUP 14 (consumer)
+1. “What data or actions from our app would actually be useful to you?”
+-username Roles, market price, farmer rating ,Headquarters, total earnings actions- select buyer/seller, pick number of goods, type of product, rate farmer,
+2.“Would you ever need to create or change data in our system, or only read it?”
+- Need to change data as they can change their roles/new clients
+3.“How often would you need this — once per page load? Real-time? Once a day?”
+-Real-time
+4.“Is there anything about our app you assumed you could access that actually isn't there?”
+-Not really 
+
+
+Matanga -GROUP 12(producer)
+When someone passes, they help with contributions, food, caskets vendors, 
+Connect with the vendors.
+
+
+Part c
+1. “What resources or data does your app manage that we might use?”
+-Funds -tracking funds from donations. 
+2. “What can we actually do with it — just read, or also create/update/delete?”
+-Updating the donations when made.
+3. “Is there anything sensitive or restricted we shouldn't expect access to?”
+-No sensitive information
+4. “How up to date is the data likely to be when we fetch it?”
+-Real time (so up to date)
+
+
+
+

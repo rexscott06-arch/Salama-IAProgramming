@@ -20,6 +20,7 @@ function Footer() {
           <Link to="/awareness">Awareness</Link>
           <Link to="/report">Report an Incident</Link>
           <Link to="/resources">Find Resources</Link>
+          <Link to="/community-events">Community Events</Link>
           <Link to="/volunteers">Volunteer</Link>
           <Link to="/donate">Donate</Link>
         </div>

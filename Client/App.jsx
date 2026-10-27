@@ -8,6 +8,7 @@ import ReportPage from './pages/ReportPage'
 import ResourcesPage from './pages/ResourcesPage'
 import VolunteersPage from './pages/VolunteersPage'
 import DonatePage from './pages/DonatePage'
+import CommunityEventsPage from './pages/CommunityEventsPage'
 import './App.css'
 
 function AnimatedRoutes() {
@@ -20,6 +21,7 @@ function AnimatedRoutes() {
         <Route path="/awareness" element={<AwarenessPage />} />
         <Route path="/report" element={<ReportPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/community-events" element={<CommunityEventsPage />} />
         <Route path="/volunteers" element={<VolunteersPage />} />
         <Route path="/donate" element={<DonatePage />} />
       </Routes>

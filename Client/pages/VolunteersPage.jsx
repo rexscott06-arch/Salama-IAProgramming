@@ -1,14 +1,41 @@
 import { useState } from 'react'
+import { apiRequest } from '../clientApi'
 import Footer from '../components/Footer'
 import PageTransition from '../components/PageTransition'
 import './VolunteersPage.css'
 
 function VolunteersPage() {
   const [submitted, setSubmitted] = useState(false)
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', county: '', role: '', availability: '', experience: '', motivation: '' })
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState(null)
+  const [formData, setFormData] = useState({
+    name: '', email: '', phone: '', county: '',
+    role: '', availability: '', experience: '', motivation: ''
+  })
 
-  const handleChange = (e) => { setFormData({ ...formData, [e.target.name]: e.target.value }) }
-  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true) }
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    setSubmitError(null)
+
+    try {
+      await apiRequest('/api/volunteers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      setSubmitted(true)
+    } catch (err) {
+      setSubmitError(err.message)
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   const roles = [
     { icon: '🧠', title: 'Counsellor Support', description: 'Assist trained counsellors in providing emotional support to GBV survivors.' },
@@ -27,7 +54,6 @@ function VolunteersPage() {
             <div className="success-icon">🤝</div>
             <h2>Thank You for Volunteering!</h2>
             <p>Your application has been received. Our volunteer coordinator will contact you within 3 business days.</p>
-            <div className="ref-box">Ref: VOL-{Math.floor(Math.random() * 90000) + 10000}</div>
             <a href="/" className="back-home">← Back to Home</a>
           </div>
           <Footer />
@@ -117,7 +143,14 @@ function VolunteersPage() {
               <div className="form-group"><label>Why do you want to volunteer? *</label><textarea name="motivation" rows="4" placeholder="Tell us what motivates you to support GBV survivors..." onChange={handleChange} required></textarea></div>
             </div>
             <div className="form-section">
-              <button type="submit" className="submit-btn">🤝 Submit Volunteer Application</button>
+              <button type="submit" className="submit-btn" disabled={submitting}>
+                {submitting ? '⏳ Submitting...' : '🤝 Submit Volunteer Application'}
+              </button>
+              {submitError && (
+                <p style={{ color: 'red', marginTop: '0.5rem' }}>
+                  ❌ Error: {submitError}. Please try again.
+                </p>
+              )}
             </div>
           </form>
         </div>
