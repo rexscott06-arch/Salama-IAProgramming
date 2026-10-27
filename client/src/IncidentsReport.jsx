@@ -6,7 +6,7 @@ function IncidentsTable() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/incidents')
+    fetch('/api/incidents')
       .then((res) => {
         if (!res.ok) throw new Error('Network response was not ok')
         return res.json()
