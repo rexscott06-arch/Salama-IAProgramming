@@ -116,14 +116,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Incident created
-                  id:
-                    type: integer
-                    example: 3
+                $ref: '#/components/schemas/Incident'
         '500':
           $ref: '#/components/responses/ServerError'
 
@@ -248,14 +241,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Resource created
-                  id:
-                    type: integer
-                    example: 6
+                $ref: '#/components/schemas/Resource'
         '500':
           $ref: '#/components/responses/ServerError'
 
@@ -325,14 +311,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Donation recorded
-                  id:
-                    type: integer
-                    example: 4
+                $ref: '#/components/schemas/Donation'
         '500':
           $ref: '#/components/responses/ServerError'
 
@@ -434,14 +413,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Volunteer application submitted
-                  id:
-                    type: integer
-                    example: 4
+                $ref: '#/components/schemas/Volunteer'
         '500':
           $ref: '#/components/responses/ServerError'
 
@@ -502,11 +474,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Volunteer status updated
+                $ref: '#/components/schemas/Volunteer'
         '500':
           $ref: '#/components/responses/ServerError'
 

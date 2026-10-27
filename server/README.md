@@ -13,7 +13,10 @@ Requirements: Node.js, MySQL running locally
     cd server
     npm install
 
-Create a .env file in the server/ directory:
+Create a `.env` file in the `server/` directory. `DB_HOST`, `DB_USER`, and
+`DB_NAME` are required. Set `DB_USER` and `DB_PASSWORD` to a MySQL account
+that can access `salama_db`; `DB_PASSWORD` may be empty if that account has no
+password:
 
     DB_HOST=localhost
     DB_USER=root
@@ -21,6 +24,18 @@ Create a .env file in the server/ directory:
     DB_NAME=salama_db
     DB_PORT=3306
     PORT=5000
+
+With the MySQL client installed, create the database and all API tables from
+the `server/` directory:
+
+    mysql -u root -p < setup-local-mysql.sql
+
+The account used to run this command needs permission to create databases and
+tables. The application account configured in `.env` needs `SELECT`, `INSERT`,
+and `UPDATE` access to those tables. If an endpoint returns a database error,
+check the server terminal for the underlying MySQL error.
+If the API reports a database authentication failure, set `DB_USER` and
+`DB_PASSWORD` to credentials that MySQL accepts, then restart the server.
 
 Start the server:
 
@@ -90,8 +105,7 @@ PATCH /api/incidents/:id/status — Update incident status
 Response 200:
 
     {
-      "id": 1,
-      "status": "in_review"
+      "message": "Incident status updated"
     }
 
 ---
@@ -148,11 +162,14 @@ GET /api/donations/summary — Get donation totals
 
 Response 200:
 
-    {
-      "total_amount": 15000.00,
-      "total_count": 5,
-      "average_amount": 3000.00
-    }
+    [
+      {
+        "payment_method": "mpesa",
+        "total_donations": 5,
+        "total_amount": 15000.00,
+        "average_amount": 3000.00
+      }
+    ]
 
 POST /api/donations — Record a donation
 
@@ -183,7 +200,7 @@ POST /api/volunteers — Submit a volunteer application
 
     curl -X POST http://localhost:5000/api/volunteers \
       -H "Content-Type: application/json" \
-      -d '{"name":"Alice Wanjiru","email":"alice@example.com","phone":"0722000000","county":"nairobi","role":"counselor","availability":"weekends","experience":"3 years NGO work","motivation":"I want to support survivors in my community"}'
+      -d '{"name":"Alice Wanjiru","email":"alice@example.com","phone":"0722000000","county":"nairobi","role":"counsellor","availability":"weekends","experience":"3 years NGO work","motivation":"I want to support survivors in my community"}'
 
 Response 201:
 
@@ -193,7 +210,7 @@ Response 201:
       "email": "alice@example.com",
       "phone": "0722000000",
       "county": "nairobi",
-      "role": "counselor",
+      "role": "counsellor",
       "availability": "weekends",
       "status": "pending"
     }
@@ -208,6 +225,14 @@ Response 200:
 
     {
       "id": 1,
+      "name": "Alice Wanjiru",
+      "email": "alice@example.com",
+      "phone": "0722000000",
+      "county": "nairobi",
+      "role": "counsellor",
+      "availability": "weekends",
+      "experience": "3 years NGO work",
+      "motivation": "I want to support survivors in my community",
       "status": "approved"
     }
 
