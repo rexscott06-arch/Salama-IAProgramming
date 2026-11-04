@@ -23,9 +23,9 @@ function VolunteersPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch('http://localhost:5001/api/volunteers', { headers: { 'X-API-Key': import.meta.env.VITE_API_KEY }, headers: { 'X-API-Key': import.meta.env.VITE_API_KEY },
+      const response = await fetch('http://localhost:5001/api/volunteers', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-API-Key': import.meta.env.VITE_API_KEY },
         body: JSON.stringify(formData),
       })
       if (!response.ok) throw new Error('Failed to submit')

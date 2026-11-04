@@ -23,9 +23,9 @@ function DonatePage() {
     e.preventDefault()
     try {
       const amount = selectedAmount || customAmount
-      const response = await fetch('http://localhost:5001/api/donations', { headers: { 'X-API-Key': import.meta.env.VITE_API_KEY }, headers: { 'X-API-Key': import.meta.env.VITE_API_KEY },
+      const response = await fetch('http://localhost:5001/api/donations', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-API-Key': import.meta.env.VITE_API_KEY },
         body: JSON.stringify({
           donor_name: formData.name || 'Anonymous',
           amount: parseFloat(amount),

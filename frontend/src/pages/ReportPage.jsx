@@ -26,9 +26,9 @@ function ReportPage() {
     e.preventDefault()
     try {
       const generatedRef = `SAL-${Math.floor(Math.random() * 90000) + 10000}`
-      const response = await fetch('http://localhost:5001/api/incidents', { headers: { 'X-API-Key': import.meta.env.VITE_API_KEY }, headers: { 'X-API-Key': import.meta.env.VITE_API_KEY },
+      const response = await fetch('http://localhost:5001/api/incidents', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-API-Key': import.meta.env.VITE_API_KEY },
         body: JSON.stringify({
           case_ref: generatedRef,
           incident_type: formData.incidentType,
