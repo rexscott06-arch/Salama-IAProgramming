@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9f0f3;
+  --text-primary: #2C2C2A;
+  --text-secondary: #666;
+  --border-color: #e0e0e0;
+  --card-bg: #ffffff;
+}
+
+[data-theme='dark'] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a1520;
+  --text-primary: #f0f0f0;
+  --text-secondary: #aaa;
+  --border-color: #444;
+  --card-bg: #2a2a2a;
+}
+
+input, select, textarea {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+}
+
+option {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+}

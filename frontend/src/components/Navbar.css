@@ -1,0 +1,88 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 64px;
+    background: #7B1F3A;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  
+  .logo-icon { font-size: 26px; }
+  
+  .logo-name {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  .logo-sub {
+    display: block;
+    font-size: 11px;
+    color: #f9b8cb;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+  }
+  
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #fff;
+    border-bottom-color: #f9b8cb;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .lang-btn {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .get-help-btn {
+    background: #fff;
+    color: #7B1F3A;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  
+  .get-help-btn:hover {
+    background: #FFCDD7;
+  }

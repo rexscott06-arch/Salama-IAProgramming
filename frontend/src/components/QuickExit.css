@@ -1,0 +1,30 @@
+.quick-exit-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    background: #C53030;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(197, 48, 48, 0.4);
+    animation: pulse 2.5s infinite;
+    transition: transform 0.15s;
+  }
+  
+  .quick-exit-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 4px 16px rgba(197, 48, 48, 0.4);
+    }
+    50% {
+      box-shadow: 0 4px 28px rgba(197, 48, 48, 0.7);
+    }
+  }
