@@ -39,7 +39,7 @@ function DonatePage() {
       setSubmitted(true)
     } catch (err) {
       console.error(err)
-      setSubmitted(true)
+      alert('Could not submit. Please try again.')
     }
   }
 

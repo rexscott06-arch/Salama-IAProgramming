@@ -44,8 +44,7 @@ function ReportPage() {
       setSubmitted(true)
     } catch (err) {
       console.error(err)
-      setCaseRef(`SAL-${Math.floor(Math.random() * 90000) + 10000}`)
-      setSubmitted(true)
+      alert('Could not submit your report. Please try again.')
     }
   }
 
