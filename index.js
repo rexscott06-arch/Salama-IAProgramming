@@ -6,7 +6,9 @@ const fs = require('fs')
 const path = require('path')
 require('dotenv').config()
 
+const { monitor, statsHandler } = require('./monitoring')
 const app = express()
+app.use(monitor)
 const PORT = process.env.PORT || 5000
 
 // --- API Key Auth ---
@@ -60,6 +62,7 @@ app.get('/', (req, res) => {
 // --- Apply auth + rate limiting to all API routes ---
 app.use(requireApiKey)
 app.use(rateLimit({ windowMs: 60000, max: 100 }))
+app.get('/stats', statsHandler)
 
 // --- Routes ---
 const userRoutes = require('./routes/users')
