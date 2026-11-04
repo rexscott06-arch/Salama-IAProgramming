@@ -173,3 +173,29 @@ Common errors:
 Full API documentation with live request testing:
 
     http://localhost:5000/api-docs
+
+## Monitoring: GET /stats
+
+Returns running totals for the API since the server started. It needs an API key like every other endpoint.
+
+    curl -H "X-API-Key: <your-api-key>" http://localhost:5001/stats
+
+Example response (shortened):
+
+    {
+      "startedAt": "2026-11-04T01:51:01.882Z",
+      "uptimeSeconds": 174,
+      "total": 63,
+      "clientErrors": 20,
+      "serverErrors": 0,
+      "errorRatePercent": 0,
+      "avgMs": 7.1,
+      "routes": {
+        "GET /api/incidents/:id": { "count": 14, "clientErrors": 7, "serverErrors": 0, "avgMs": 1.8, "maxMs": 3.6 }
+      }
+    }
+
+- clientErrors counts 4xx responses (caller mistakes). serverErrors counts 5xx responses (our faults).
+- errorRatePercent is built from 5xx errors only.
+- Numbers are kept in memory and reset when the server restarts.
+- Every request is also logged as one JSON line (time, method, path, status, ms, caller). Keys, query strings and bodies are never logged.
